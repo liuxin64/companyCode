@@ -1,0 +1,28 @@
+<navigation title="{{ conversation.userProfile.nick }}" back bindback="back"/>
+<scroll-view class="cu-chat" scroll-y style="height: {{ screenHeight - 236 }}rpx" bindscrolltoupper="pullRefresh" scroll-into-view="view-{{ scrollBottom }}">
+	<view wx:for="{{ messageList }}" wx:key="index" class="cu-item {{ item.flow == 'in' ? '' : 'self' }}" id="view-{{ index }}">
+    <view wx:if="{{ item.flow == 'in' }}" class="cu-avatar radius" style="background-image:url({{ item.avatar }});"></view>
+		  <view class="main">
+			  <view class="content {{ item.flow == 'in' ? 'bg-white' : 'bg-green' }} shadow">
+				  <text>{{ item.payload.text }}</text>
+			  </view>
+		  </view>
+		  <view wx:if="{{ item.flow != 'in' }}" bindtap="{{ item.flow != 'in' ? '' : 'showDetail' }}" class="cu-avatar radius" style="background-image:url({{ item.avatar }});"></view>
+		<view class="date">
+      {{ (index == messageList.length - 1 && sending) ? '' : item.time }}
+      <image wx:if="{{ index == messageList.length - 1 && sending }}" class="animation" src="../../../../static/icon/loading.png" style="width: 30rpx; height: 30rpx;"></image>
+    </view>
+	</view>
+</scroll-view>
+
+<view class="cu-bar foot input" style="bottom: {{InputBottom}}px;">
+	<!-- <view class="action">
+		<text class="cuIcon-sound text-grey"></text>
+	</view> -->
+	<input class="solid-bottom bg-gray radius"  adjust-position="false" focus="false" maxlength="300" cursor-spacing="10"
+	 bindfocus="InputFocus" bindblur="InputBlur" value="{{ text }}" bindinput="inputText"></input>
+	<!-- <view class="action">
+		<text class="cuIcon-emojifill text-grey"></text>
+	</view> -->
+	<button class="cu-btn bg-green shadow" bindtap="send">发送</button>
+</view>

@@ -1,0 +1,14 @@
+/* pages/words/index.wxss */
+@import "../index.wxss";
+@import "../../app.wxss";
+.__text-align-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.__position-box {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}

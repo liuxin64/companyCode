@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navigation": "../../../components/navigation/navigate-bar",
+    "bg-loading": "../../../components/bg-transform/bg-loading",
+    "scroll": "../../../components/scroll/index"
+  },
+  "disableScroll": true
+}

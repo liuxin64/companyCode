@@ -1,0 +1,73 @@
+<navigation searchBar back bindback="back" catchsearch="search"/>
+<bg-loading showLoading="{{ loading }}"/>
+<view class="erys-tab__top common-border-bottom-shadow common-padding-left-right">
+  <view class="text-shadow text-lg erys-tab__text-row">
+    <button class="cu-btn round" bindtap="manage">管理</button>
+    <view class="text-shadow text-lg text-gray margin-left">(共{{ products.length - deleted.length }}件商品)</view>
+  </view>
+  <button wx:if="{{ !setting }}" class="cu-btn round" bindtap="initOffSale">{{ saling == 10 ? '下架商品' : '上架商品'}}</button>
+  <button wx:if="{{ setting }}" class="cu-btn round" bindtap="submit">确定</button>
+</view>
+<scroll 
+  reqeusting="{{ reqeusting }}"
+  end="{{ end }}"
+  empty-show="{{ emptyShow }}"
+  listCount="{{ products.length }}"
+  enable-back-to-top="{{enableBackToTop}}"
+  refresh-size="{{refreshSize}}"
+  bottom-size="{{bottomSize}}"
+  color="{{color}}"
+  catchrefresh="refresh"
+  catchmore="more"
+>
+  <checkbox-group class="common-padding-left-right" bindchange="checkboxChange">
+    <view hidden="{{ item.hidden }}" class="erys-tab__items common-padding-top-bottom common-border-bottom-shadow" wx:for="{{ products }}" wx:key="index">
+      <view class="erys-tab__back-items">
+        <checkbox class="round {{ item.checked.checked?'checked':'' }}" value="{{ item.SysNo }}" checked="{{ item.checked }}"></checkbox>
+        <view class="text-balck text-shadow text-sm flex justify-start align-center">
+          优先级
+          <input placeholder="输入排序数值" data-index="{{ item.SysNo }}" value="{{ item.Priority }}" class="text-sm erys-tab__input radius text-center" bindconfirm="setRank"></input>
+        </view>
+      </view>
+      <view class="common-padding-top-bottom erys-tab__text-row erys-tab__box {{ setting && 'erys-tab__animation' }}">
+        <view class="common-radius radius shadow-blur bg-red bg-img" style="background-image: url('{{ item.DefaultImage }}');width: 180rpx;height: 180rpx;" data-index="{{ index }}" bindtap="navigateToDetails">
+          <image wx:if="{{ item.IsDisplayWebsite == 1 }}" src="../../../static/icon/icon-set-top.png" class="erys-tab__img"></image>
+        </view>
+        <view class="margin-left erys-tab__text-padding">
+          <view class="text-cut text-lg text-bold text-black text-shadow">{{ item.ProductName }}</view>
+          <view>
+            <view class="text-cut text-sm text-gray text-shadow">型号: {{ item.SKUModel }}</view>
+            <view class="text-cut text-sm text-gray text-shadow" style="margin-top: 6rpx;">材质: {{ item.Material }}</view>
+          </view>
+          <view class="text-cut text-price text-bold text-red text-lg text-shadow">{{ item.RetailPrice }}</view>
+        </view>
+        <view class="flex justify-between align-end erys-tab__footer" style="flex-direction: column;">
+          <button class="cu-btn round text-sm {{ item.IsDisplayWebsite == 1 && 'bg-blue'}}" data-index="{{ index }}" bindtap="setTop">置顶</button>
+          <view class="cuIcon-edit erys-tab__edit" data-index="{{ index }}" bindtap="edit">编辑</view>
+        </view>
+      </view>
+    </view>
+  </checkbox-group>
+</scroll>
+<!-- <scroll-view scroll-y class="common-padding-left-right" style="height: {{ screenHeight - 384 }}rpx">
+  
+</scroll-view> -->
+<view class="erys-tab__footer-fixed {{ setting && 'erys-tab__footer-animation' }}">
+  <view class="common-padding erys-footer__items">
+    <button class="common-button erys-button__footer">新增商品</button>
+  </view>
+  <view class="common-padding erys-footer__items flex flex-row justify-between align-center">
+    <view class="text-sm text-black text-shadow flex flex-row align-center">
+      <checkbox-group bindchange="checkAll">
+        <checkbox class="round {{ checkall ?'checked':'' }}" checked="{{ checkall }}" value="-1"></checkbox>
+      </checkbox-group>
+    全选
+    </view>
+    <view class="flex flex-row justify-center align-center">
+      <view class="text-black text-shadow margin-right text-sm">已选：{{ hadChecked }}个</view>
+      <button wx:if="{{ saling == 10 }}" data-target="sale" class="cu-btn bg-blue round" bindtap="offsale">下架</button>
+      <button wx:if="{{ saling == 20 }}" data-target="delete" class="cu-btn bg-blue round" bindtap="offsale">删除</button>
+      <button wx:if="{{ saling == 20 }}" data-target="sale" class="cu-btn bg-blue round margin-left" bindtap="offsale">上架</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,73 @@
+<navigation title="个人中心" back bindback="back"/>
+<view class="bg-gray">
+  <view class="erys-zone__groups">
+    <view class="padding-xl">
+      <view class="padding-sm erys-zone__title-box shadow bg-white radius">
+        <view class="cu-avatar xl round" style="background-image: url('{{ avatar }}');margin-right: 20px;"></view>
+        <view class="text-black text-shadow text-xl" style="font-weight: bold; letter-spacing: 2px;">{{ myInfo.Name || myInfo.WX }}</view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-list grid col-{{ gridCol }} no-border shadow bg-white">
+    <view class="cu-item" wx:for="{{ cuIconList }}" wx:key="index" data-index="{{ index }}" bindtap="clicktap">
+      <view class="cuIcon-{{item.cuIcon}} text-black text-shadow">
+        <view class="cu-tag badge" wx:if="{{ item.badge!=0 }}">
+          <block wx:if="{{ item.badge!=1 }}">{{item.badge>99?'99+':item.badge}}</block>
+        </view>
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+  <view class="padding-xl">
+    <!--部分记录-->
+    <view class="__title">
+      <view class="text-black text-shadow">浏览记录</view>
+      <view class="text-gray text-shadow">更多</view>
+    </view>
+    <view class="bg-white radius shadow margin-top">
+      <view class="padding-xl common-border-bottom-shadow" hover-class="bg-gray">
+        <view class="__title">
+          <view class="cu-avatar lg round" style="background-image: url({{ avatar}})"></view>
+          <view class="text-right">
+            <view class="text-lg text-black text-shadow">莫杨</view>
+            <view class="text-sm text-shadow">高级职业经理人</view>
+            <view class="text-sm text-shadow">成都太平园信息科技有限公司</view>
+          </view>
+        </view>
+        <view class="__title margin-top">
+          <view class="text-sm text-shadow">上次 2019-09-09 12:12</view>
+          <view class="text-sm text-shadow">总浏览12次</view>
+        </view>
+      </view>
+      <view class="padding-xl common-border-bottom-shadow" hover-class="bg-gray">
+        <view class="__title">
+          <view class="cu-avatar lg round" style="background-image: url({{ avatar}})"></view>
+          <view class="text-right">
+            <view class="text-lg text-black text-shadow">莫杨</view>
+            <view class="text-sm text-shadow">高级职业经理人</view>
+            <view class="text-sm text-shadow">成都太平园信息科技有限公司</view>
+          </view>
+        </view>
+        <view class="__title margin-top">
+          <view class="text-sm text-shadow">上次 2019-09-09 12:12</view>
+          <view class="text-sm text-shadow">总浏览12次</view>
+        </view>
+      </view>
+      <view class="padding-xl common-border-bottom-shadow" hover-class="bg-gray">
+        <view class="__title">
+          <view class="cu-avatar lg round" style="background-image: url({{ avatar}})"></view>
+          <view class="text-right">
+            <view class="text-lg text-black text-shadow">莫杨</view>
+            <view class="text-sm text-shadow">高级职业经理人</view>
+            <view class="text-sm text-shadow">成都太平园信息科技有限公司</view>
+          </view>
+        </view>
+        <view class="__title margin-top">
+          <view class="text-sm text-shadow">上次 2019-09-09 12:12</view>
+          <view class="text-sm text-shadow">总浏览12次</view>
+        </view>
+      </view>
+    </view>
+    <view class="text-center text-orange text-shadow text-sm padding-xl">申请雷达，查看更多记录，快捷促成生意！</view>
+  </view>
+</view>

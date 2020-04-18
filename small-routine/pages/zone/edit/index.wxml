@@ -1,0 +1,23 @@
+<navigation back title="编辑" bindback="back"></navigation>
+<view class="common-padding common-background-index">
+  <cardA 
+    avatar="{{ avatar }}" 
+      topTitle="{{ myInfo.CompanyName }}" 
+      mainTitle="{{ myInfo.Name }}"
+      positionTitle="{{ myInfo.PositionName }}"
+      phone="{{ myInfo.Telephone }}"
+      email="{{ myInfo.Email }}"
+      address="{{ myInfo.ProvinceName + myInfo.CityName + myInfo.DistrictName + myInfo.Address }}"
+  />
+  
+</view>
+
+<view class="cu-list menu card-menu margin-top">
+    <view class="cu-item arrow" style="padding: 0;" wx:for="{{ customItems }}" wx:key="index">
+      <navigator class="content" hover-class="none" url="{{ item.url }}" open-type="navigate">
+        <text class="cuIcon-{{ item.icon }} text-orange"></text>
+        <text class="text-grey">{{ item.name }}</text>
+      </navigator>
+    </view>
+  </view>
+

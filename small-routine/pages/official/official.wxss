@@ -1,0 +1,12 @@
+/* pages/official/official.wxss */
+/* 商城 */
+#tab{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  color: red;
+  position: fixed;
+  bottom: 0;
+  font-size: 30px;
+  background-color: #E6E6E6;
+}

@@ -1,0 +1,8 @@
+<!--pages/store/store.wxml-->
+<text>官网</text>
+<!-- 导航条 -->
+<view id="tab">
+  <navigator wx:for="{{ tabList }}" wx:key = "{{ item.url }}" url="/pages/{{ item.url }}/{{ item.url }}?url={{ item.url }}&title={{ item.name }}" >
+  <text>{{item.name}}</text>
+  </navigator>
+</view>

@@ -1,0 +1,45 @@
+<navigation title="商品详情" back bindback="back"/>
+<bg-loading showLoading="{{ loading }}"/>
+<swiper class="card-swiper {{ dotStyle?'square-dot':'round-dot' }} common-border-bottom-shadow shadow" indicator-dots="true" circular="true"
+ autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3"
+ indicator-active-color="#0081ff">
+	<swiper-item wx:for="{{ swipers }}" wx:key="index" class="{{ cardCur==index?'cur':'' }}">
+		<view class="swiper-item bg-gray" bindtap="previewSwiper">
+			<image src="{{ item }}" mode="aspectFill" bindload="loadImage" binderror="loadImage"></image>
+		</view>
+	</swiper-item>
+</swiper>
+<view class="common-padding common-border-bottom-shadow shadow">
+  <view class="erys-card__box">
+    <view class="text-xl text-black text-shadow">{{ info.ProductName }}</view>
+    <button class="cu-btn bg-white cu-tag" open-type="getUserInfo" bindgetuserinfo="share">
+      <view class="cuIcon-forwardfill text-blue" style="font-size: 36rpx;"></view>
+    </button>
+  </view>
+  <view class="margin-top erys-product__text">
+    <view class="text-gray text-sm text-shadow">型号：{{ info.SKUModel }}</view>
+    <view class="text-gray text-sm text-shadow margin-left">材质：{{ info.Material }}</view>
+  </view>
+  <view class="text-red text-price text-xl text-shadow margin-top">{{ info.RetailPrice }}</view>
+</view>
+<view class="common-padding common-border-bottom-shadow shadow">
+  <view class="text-black text-lg text-shadow text-bold">商品卖点</view>
+  <view class="text-black text-lg text-shadow margin-top" style="letter-spacing: 1px;">
+    {{ info.Description }}
+  </view>
+</view>
+<view class="common-padding common-border-bottom-shadow shadow" wx:if="{{ video }}">
+  <view class="text-black text-lg text-shadow text-bold">商品视频</view>
+  <view class="margin-top">
+    <video src="{{ video }}" style="width: 100%;" class="radius" bindloadedmetadata="loadImage"></video>
+  </view>
+</view>
+<view class="common-padding common-border-bottom-shadow shadow">
+  <view class="text-black text-lg text-shadow text-bold">商品图文</view>
+  <view class="margin-top">
+    <view wx:for="{{ images }}" wx:key="index">
+      <image src="{{ item.path }}" mode="widthFix" style="width: 100%;" bindload="loadImage" bindtap="previewDetails" binderror="loadImage"></image>
+      <view class="padding-sm text-black text-shadow" wx:if="{{ item.desc }}">{{ item.desc }}</view>
+    </view>
+  </view>
+</view>

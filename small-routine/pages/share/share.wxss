@@ -1,0 +1,46 @@
+/* pages/share/share.wxss */
+.erys-share__rotate-box {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* animation: shareRorate 1s linear initial; */
+}
+.erys-share__qr-img-box {
+  width: 600rpx;
+  height: 600rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.erys-share__qr-image {
+  width: 500rpx;
+  height: 500rpx;
+}
+.erys-share__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+/* @keyframes shareRorate {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(180deg)
+  }
+}
+
+@-webkit-keyframes shareRotate {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(180deg)
+  }
+} */

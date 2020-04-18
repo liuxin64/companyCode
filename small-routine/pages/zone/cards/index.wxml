@@ -1,0 +1,21 @@
+<navigation title="名片夹" back bindback="back"/>
+<view class="bg-gray">
+  <view class="padding-xl">
+    <view class="bg-white radius shadow margin-top" wx:for="{{ cards }}" wx:key="index" data-index="{{ index }}" bindtap="detailtap">
+      <view class="padding-xl common-border-bottom-shadow" hover-class="bg-gray">
+        <view class="erys-card__box">
+          <view>
+            <view class="text-xl text-black text-shadow">{{ item.Name }}</view>
+            <view class="text-sm text-black text-shadow erys-card__box-text-margin">{{ item.PositionName || '' }}</view>
+            <view class="text-sm text-black text-shadow erys-card__box-text-margin">{{ item.CompanyName || '' }}</view>
+          </view>
+          <view class="cu-avatar xl round" style="background-image: url({{ item.HeadPortraitUrl }})"></view>
+        </view>
+      </view>
+      <view class="text-lg text-shadow __title padding-sm">
+        <view class="cuIcon-dianhua text-center text-lg erys-card__footer-text-border" style="width: 50%;" data-phone="{{ item.Telephone }}" hover-class="bg-gray">拨打电话</view>
+        <view class="cuIcon-markfill text-center text-lg" style="width: 50%;" data-id="C2C{{ item.UserSysNo }}" hover-class="bg-gray">发送消息</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,84 @@
+/* pages/zone/goods/index.wxss */
+.erys-tab__top {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 199;
+  background: white;
+}
+.erys-tab__text-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.erys-tab__box {
+  transition: all  .25s  ease-in;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background: white;
+}
+.erys-tab__img {
+  width: 60rpx;
+  height: 60rpx;
+}
+.erys-tab__text-padding {
+  width: 326rpx;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.erys-tab__footer {
+  width: 140rpx;
+  height: 180rpx;
+}
+.erys-tab__edit {
+  margin-right: 16rpx;
+}
+.erys-tab__animation {
+  transform:translateX(250rpx);
+}
+.erys-tab__items {
+  position: relative;
+}
+.erys-tab__input {
+  width: 160rpx;
+  border: 1rpx solid #E6E6E6;
+  margin-left: 4rpx;
+  transition: all  .25s  ease-in;
+}
+.erys-tab__back-items {
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.erys-tab__footer-fixed {
+  width: 1500rpx;
+  height: 160rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all  .25s  ease-in;
+}
+.erys-footer__items {
+  width: 750rpx;
+  height: 160rpx;
+}
+.erys-button__footer {
+  background: #3a5cfa;
+  color: white;
+}
+.erys-tab__footer-animation {
+  transform: translateX(-750rpx);
+}

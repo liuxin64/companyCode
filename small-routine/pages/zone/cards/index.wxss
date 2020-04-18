@@ -1,0 +1,21 @@
+.__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.erys-card__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.erys-card__box-text-margin {
+  width: 360rpx;margin-top: 12rpx;
+}
+.erys-card__footer-text-border {
+  border-right: 1px solid #E6E6E6;
+}
+page {
+  background: #f0f0f0;
+}

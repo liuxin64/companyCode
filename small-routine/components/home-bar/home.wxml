@@ -1,0 +1,16 @@
+<button class="erys-home-button__outter" open-type="getUserInfo" bindgetuserinfo="getSysUserInfo">
+  <view class="{{ ext-class }} erys-home-button" style="background: {{ background }}; border: 1px solid {{ border }}; color: {{ color }}; font-size: {{ fontSize }}px; width: {{ menuRect.width }}px; height: {{ menuRect.height }}px; border-radius: {{ menuRect.height}}px;">
+    <view class="erys-home-button__inner-box">
+      <view class="erys-home-button__avatar-box">
+        <image src="{{ avatar }}"></image>
+      </view>
+      <view class="erys-home-button__text-box" style="width: {{ buttonInnerTextBox }}px;">
+        <text hidden="{{ hideText }}">{{ title }}</text>
+        <view class="erys-home-button__loading" hidden="{{ !hideText }}">
+          <image class="{{ animation }}" src="../../static/icon/loading.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view hidden="{{ !badge }}" class="erys-home-button__badge"></view>
+</button>
